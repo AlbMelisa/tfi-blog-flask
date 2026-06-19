@@ -12,7 +12,7 @@ except ImportError:
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "uploads")
 ALLOWED_EXTENSIONS = {"pdf"}
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static'))
 app.secret_key = "supersecretkey"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
