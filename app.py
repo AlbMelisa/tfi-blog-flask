@@ -59,6 +59,7 @@ def allowed_file(filename):
 
 
 @app.route("/")
+@app.route("/45275151")
 def index():
     page = request.args.get("page", "1")
     try:
