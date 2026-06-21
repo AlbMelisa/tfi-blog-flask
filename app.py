@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, abort
 from werkzeug.utils import secure_filename
 from werkzeug.middleware.proxy_fix import ProxyFix
 import os
@@ -171,6 +171,19 @@ def upload_pdf():
 
     #return redirect(url_for("index"))
     return redirect("/45275151")
+
+
+@app.route("/download-tpf")
+@app.route("/45275151/download-tpf")
+def download_tpf():
+    filename = "Informe_TPF.pdf"
+    upload_folder = app.config["UPLOAD_FOLDER"]
+    file_path = os.path.join(upload_folder, filename)
+    if not os.path.exists(file_path):
+        flash("El archivo Informe_TPF.pdf no se encuentra disponible.", "error")
+        return redirect("/45275151")
+
+    return send_from_directory(upload_folder, filename, as_attachment=True)
 
 
 if __name__ == "__main__":
