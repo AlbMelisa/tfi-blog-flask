@@ -108,11 +108,11 @@
 
           <div class="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs">
             {% if page > 1 %}
-            <a href="/?page={{ page - 1 }}" class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700 ring-1 ring-slate-200 hover:bg-slate-200">Anterior</a>
+            <a href="?page={{ page - 1 }}" class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700 ring-1 ring-slate-200 hover:bg-slate-200">Anterior</a>
             {% endif %}
             <span class="px-3 py-1.5 text-slate-600">Página {{ page }} de {{ total_pages }}</span>
             {% if page < total_pages %}
-            <a href="/?page={{ page + 1 }}" class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700 ring-1 ring-slate-200 hover:bg-slate-200">Siguiente</a>
+            <a href="?page={{ page + 1 }}" class="rounded-full bg-slate-100 px-3 py-1.5 text-slate-700 ring-1 ring-slate-200 hover:bg-slate-200">Siguiente</a>
             {% endif %}
           </div>
         </div>
