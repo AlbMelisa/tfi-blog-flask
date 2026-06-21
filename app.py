@@ -128,8 +128,8 @@ def add_post():
 
     if not title or not content:
         flash("El título y el contenido son obligatorios.", "error")
-        return redirect(url_for("index"))
-
+        #return redirect(url_for("index"))
+        return redirect("/45275151")
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
@@ -144,19 +144,21 @@ def add_post():
     except Exception:
         flash("Error al agregar el post. Verifique la base de datos.", "error")
 
-    return redirect(url_for("index"))
+    return redirect("/45275151")
 
 
 @app.route("/upload-pdf", methods=["POST"])
 def upload_pdf():
     if "pdf_file" not in request.files:
         flash("No se encontró el archivo PDF.", "error")
-        return redirect(url_for("index"))
+        return redirect("/45275151")
+      #  return redirect(url_for("index"))
 
     pdf_file = request.files["pdf_file"]
     if pdf_file.filename == "":
         flash("Seleccione un archivo PDF para subir.", "error")
-        return redirect(url_for("index"))
+       # return redirect(url_for("index"))
+        return redirect("/45275151")
 
     if pdf_file and allowed_file(pdf_file.filename):
         filename = secure_filename("Informe_TPF.pdf")
@@ -166,7 +168,8 @@ def upload_pdf():
     else:
         flash("Solo se permiten archivos PDF.", "error")
 
-    return redirect(url_for("index"))
+    #return redirect(url_for("index"))
+    return redirect("/45275151")
 
 
 if __name__ == "__main__":
