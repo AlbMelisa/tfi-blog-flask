@@ -122,6 +122,7 @@ def index():
 
 
 @app.route("/add-post", methods=["POST"])
+@app.route("/45275151/add-post", methods=["POST"])
 def add_post():
     title = str(request.form.get("title", "")).strip()
     content = str(request.form.get("content", "")).strip()
